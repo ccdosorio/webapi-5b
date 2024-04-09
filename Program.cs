@@ -28,6 +28,14 @@ builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
+// Enable CORS
+app.UseCors(policy =>
+{
+  policy.AllowAnyOrigin();
+  policy.AllowAnyMethod();
+  policy.AllowAnyHeader();
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
